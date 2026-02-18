@@ -32,4 +32,30 @@ function getTasksFromDOM() {
 function saveTasks(tasks) {
 
 }
+// Возвращение списка задач
+function loadTasks() {
+  const tasksFromStorage = localStorage.getItem('tasks');
+
+  if (tasksFromStorage) {
+    return JSON.parse(tasksFromStorage);
+  }
+
+  return items; 
+}
+
+// Создание DOM-элемента задачи
+function createItem(item) {
+  const clone = document
+    .querySelector('#to-do__item-template')
+    .content
+    .querySelector('.to-do__item')
+    .cloneNode(true);
+
+  const textElement = clone.querySelector('.to-do__item-text');
+  const deleteButton = clone.querySelector('.to-do__item-button_type_delete');
+  const duplicateButton = clone.querySelector('.to-do__item-button_type_duplicate');
+  const editButton = clone.querySelector('.to-do__item-button_type_edit');
+
+  textElement.textContent = item;
+}
 
