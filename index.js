@@ -86,6 +86,21 @@ function createItem(item) {
     return clone;
 
 }
+function getTasksFromDOM() {
+  const itemsNamesElements = document.querySelectorAll('.to-do__item-text');
+  const tasks = [];
+
+  itemsNamesElements.forEach((element) => {
+    tasks.push(element.textContent);
+  });
+
+  return tasks;
+}
+
+function saveTasks(tasks) {
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
 formElement.addEventListener('submit', (evt) => {
   evt.preventDefault();
 
