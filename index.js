@@ -99,5 +99,11 @@ formElement.addEventListener('submit', (evt) => {
 
   inputElement.value = '';
 });
+items = loadTasks();
+
+items.forEach((item) => {
+  const taskElement = createItem(item);
+  listElement.append(taskElement);
+});
 
 
