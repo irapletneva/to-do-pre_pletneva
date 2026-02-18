@@ -86,4 +86,18 @@ function createItem(item) {
     return clone;
 
 }
+formElement.addEventListener('submit', (evt) => {
+  evt.preventDefault();
+
+  const item = inputElement.value;
+
+  const newItem = createItem(item);
+  listElement.prepend(newItem);
+
+  items = getTasksFromDOM();
+  saveTasks(items);
+
+  inputElement.value = '';
+});
+
 
